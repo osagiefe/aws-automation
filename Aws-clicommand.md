@@ -1,4 +1,9 @@
+===========================================
+Configure AWS CLI
+============================================
+# This command sets up your AWS CLI with your credentials and default region.
 
+aws configure
 ============================================
 AWS Cli command for s3 
 ============================================
@@ -34,3 +39,18 @@ aws ec2 create-key-pair --key-name boss --query 'KeyMaterial' --output text > bo
 chmod 400 boss.pem
 # cmd to list/describe key pairs
 aws ec2 describe-key-pairs
+
+# AWS Cli command for creating Security Group
+aws ec2 describe-security-groups \
+    --group-ids sg-07d609f75ec60c6c3
+# Delete ec2 security group
+aws ec2 delete-security-group   --group-id sg-07d609f75ec60c6c3
+# Create ec2 instance
+aws ec2 run-instances --image-id <ami-id> --count 1 --instance-type t2.micro   --key-name <Keypair-name> --security-group-ids <SecurityGroupId> 
+--subnet-id <SubnetId>
+# to describe ec2 instance with instance id
+aws ec2 describe-instances --instance-id <instance id>
+
+
+
+
